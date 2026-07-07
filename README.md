@@ -1,0 +1,2 @@
+This project belongs to the field of Edge-Cloud Computing and focuses on task offloading decisions between local devices, edge servers, and cloud servers.<br>
+본 프로젝트는 엣지-클라우드 컴퓨팅 분야에 속하며, Local Device, Edge Server, Cloud Server 간의 작업 오프로딩 의사결정을 시뮬레이션하는 것을 목표로 한다.
