@@ -1,0 +1,24 @@
+nodes:
+  local:
+    cpu_power: 1000000000
+    upload_bandwidth: 0
+    download_bandwidth: 0
+    network_delay_ms: 0
+    cost_per_mb: 0
+    energy_per_cycle: 0.000000001
+
+  edge:
+    cpu_power: 5000000000
+    upload_bandwidth: 50
+    download_bandwidth: 100
+    network_delay_ms: 20
+    cost_per_mb: 0.001
+    energy_per_cycle: 0.0000000004
+
+  cloud:
+    cpu_power: 15000000000
+    upload_bandwidth: 20
+    download_bandwidth: 50
+    network_delay_ms: 100
+    cost_per_mb: 0.003
+    energy_per_cycle: 0.0000000002

@@ -1,0 +1,6 @@
+algorithm,average_latency_ms,average_cost,average_energy,deadline_miss_rate_percent
+Local Only,2910.0,0.0,2.91,100.0
+Edge Only,990.0,0.0199,1.1640000000000001,0.0
+Cloud Only,1259.0,0.059699999999999996,0.5820000000000001,30.0
+Latency Greedy,990.0,0.0199,1.1640000000000001,0.0
+Deadline Cost Minimization,990.0,0.0199,1.1640000000000001,0.0
