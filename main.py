@@ -1,6 +1,8 @@
 import os
 import pandas as pd
 
+from src.visualization import plot_summary
+
 from src.simulator import load_tasks, load_nodes, run_algorithm
 from src.algorithms import (
     local_only,
@@ -71,6 +73,8 @@ def main():
     summary_df.to_csv("results/summary.csv", index=False)
 
     print("Saved summary to results/summary.csv")
+
+    plot_summary()
 
 
 if __name__ == "__main__":
