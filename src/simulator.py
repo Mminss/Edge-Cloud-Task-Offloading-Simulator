@@ -9,6 +9,44 @@ from src.metrics import (
     is_deadline_missed,
 )
 
+from src.algorithms import (
+    local_only, edge_only, cloud_only,
+    latency_greedy, deadline_cost_minimization,
+)
+
+ALGORITHMS = {
+    "local_only": local_only,
+    "edge_only": edge_only,
+    "cloud_only": cloud_only,
+    "latency_greedy": latency_greedy,
+    "deadline_cost_minimization": deadline_cost_minimization,
+}
+
+
+def run_all_algorithms(
+    tasks: list[Task],
+    nodes: dict[str, Node],
+) -> dict[str, list[SimulationResult]]:
+    return {
+        name: run_algorithm(tasks, nodes, func)
+        for name, func in ALGORITHMS.items()
+    }
+
+
+def summarize(results: dict[str, list[SimulationResult]]) -> None:
+    for name, sim_results in results.items():
+        n = len(sim_results)
+        avg_latency = sum(r.latency_ms for r in sim_results) / n
+        avg_cost = sum(r.cost for r in sim_results) / n
+        avg_energy = sum(r.energy for r in sim_results) / n
+        miss_rate = sum(r.deadline_missed for r in sim_results) / n * 100
+
+        print(f"[{name}]")
+        print(f"  avg latency: {avg_latency:.2f} ms")
+        print(f"  avg cost: {avg_cost:.4f}")
+        print(f"  avg energy: {avg_energy:.4f}")
+        print(f"  deadline miss rate: {miss_rate:.1f}%")
+        print("-" * 30)
 
 def load_tasks(csv_path: str) -> list[Task]:
     df = pd.read_csv(csv_path)
